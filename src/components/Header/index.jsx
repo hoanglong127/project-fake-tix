@@ -14,18 +14,18 @@ const Header = () => {
   return (
     <Fragment>
       <header
-        className="fixed w-full z-10 shadow-sm"
+        className="fixed w-full max-h-16 z-10 shadow-sm"
         style={{ backgroundColor: "rgba(255,255,255,.95)" }}
       >
         <div className="flex justify-between items-center px-5 py-2">
           <Link to="/">
             <img className="w-12" src={logo} alt="logo" />
           </Link>
-          <ul className="hidden sm:flex items-center">
+          <ul className="hidden sm:flex items-center mb-0">
             <li className="px-3">
               <Link
                 to="/"
-                className="font-medium hover:text-red-500 transition-all duration-300"
+                className="font-medium text-base text-black hover:text-red-500 transition-all duration-300"
               >
                 Lịch chiếu
               </Link>
@@ -33,7 +33,7 @@ const Header = () => {
             <li className="px-3">
               <Link
                 to="/"
-                className="font-medium hover:text-red-500 transition-all duration-300"
+                className="font-medium text-base text-black hover:text-red-500 transition-all duration-300"
               >
                 Cụm rạp
               </Link>
@@ -41,7 +41,7 @@ const Header = () => {
             <li className="px-3">
               <Link
                 to="/"
-                className="font-medium hover:text-red-500 transition-all duration-300"
+                className="font-medium text-base text-black hover:text-red-500 transition-all duration-300"
               >
                 Tin tức
               </Link>
@@ -49,13 +49,13 @@ const Header = () => {
             <li className="px-3">
               <Link
                 to="/"
-                className="font-medium hover:text-red-600 transition-all duration-300"
+                className="font-medium text-base text-black hover:text-red-600 transition-all duration-300"
               >
                 Ứng dụng
               </Link>
             </li>
           </ul>
-          <button className="hidden sm:inline-block bg-red-500 hover:bg-red-600 text-white font-bold px-5 py-2 rounded-md transition-all duration-300">
+          <button className="hidden sm:inline-block bg-red-500 hover:bg-red-600 text-white font-bold text-base px-5 py-2 rounded-md transition-all duration-300">
             Đăng nhập
           </button>
           <button onClick={handleSetIsSidebar} className="p-4 sm:hidden">
@@ -91,7 +91,7 @@ const Header = () => {
           }`}
         >
           <div className="flex justify-between items-center">
-            <button className="bg-red-500 hover:bg-red-600 text-white font-bold px-5 py-2 rounded-md transition-all duration-300">
+            <button className="bg-red-500 hover:bg-red-600 text-white font-bold text-base px-5 py-2 rounded-md transition-all duration-300">
               Đăng nhập
             </button>
             <button
@@ -118,7 +118,7 @@ const Header = () => {
             <li className="p-3">
               <Link
                 to="/"
-                className="font-medium hover:text-red-500 transition-all duration-300"
+                className="font-medium text-base text-black hover:text-red-500 transition-all duration-300"
               >
                 Lịch chiếu
               </Link>
@@ -126,7 +126,7 @@ const Header = () => {
             <li className="p-3">
               <Link
                 to="/"
-                className="font-medium hover:text-red-500 transition-all duration-300"
+                className="font-medium text-base text-black hover:text-red-500 transition-all duration-300"
               >
                 Cụm rạp
               </Link>
@@ -134,7 +134,7 @@ const Header = () => {
             <li className="p-3">
               <Link
                 to="/"
-                className="font-medium hover:text-red-500 transition-all duration-300"
+                className="font-medium text-base text-black hover:text-red-500 transition-all duration-300"
               >
                 Tin tức
               </Link>
@@ -142,7 +142,7 @@ const Header = () => {
             <li className="p-3">
               <Link
                 to="/"
-                className="font-medium hover:text-red-600 transition-all duration-300"
+                className="font-medium text-base text-black hover:text-red-600 transition-all duration-300"
               >
                 Ứng dụng
               </Link>

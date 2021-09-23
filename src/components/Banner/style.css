@@ -1,0 +1,28 @@
+.slick-dots-bottom {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.ant-carousel .slick-dots-bottom {
+  bottom: 30px !important;
+}
+
+.slick-dots li button:before {
+  content: "" !important;
+}
+
+.banner-item {
+  height: 600px;
+}
+
+@media screen and (max-width: 1024px) {
+  .banner-item {
+    height: 500px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .banner-item {
+    height: 300px;
+  }
+}
