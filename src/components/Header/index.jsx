@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <Fragment>
       <header
-        className="fixed w-full max-h-16 z-10 shadow-sm"
+        className="fixed w-full max-h-16 z-40 shadow-sm"
         style={{ backgroundColor: "rgba(255,255,255,.95)" }}
       >
         <div className="flex justify-between items-center px-5 py-2">
@@ -81,12 +81,12 @@ const Header = () => {
       <div className="sm:hidden absolute top-0 left-0 right-0 bottom-0">
         <div
           onClick={handleSetIsSidebar}
-          className={`fixed w-full h-full bg-black opacity-50 cursor-pointer z-20 ${
+          className={`fixed w-full h-full bg-black opacity-50 cursor-pointer z-50 ${
             isSidebar ? "block" : "hidden"
           }`}
         ></div>
         <div
-          className={`fixed w-80 top-0 right-0 bottom-0 z-30 bg-white p-4 transition-all duration-300 transform  ${
+          className={`fixed w-80 top-0 right-0 bottom-0 z-50 bg-white p-4 transition-all duration-300 transform  ${
             isSidebar ? "translate-x-0" : "translate-x-full"
           }`}
         >

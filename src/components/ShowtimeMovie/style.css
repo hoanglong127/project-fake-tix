@@ -1,0 +1,62 @@
+.showtimeMovie .ant-tabs {
+  overflow: unset;
+}
+
+.showtimeMovie .ant-tabs > .ant-tabs-nav .ant-tabs-nav-wrap {
+  justify-content: center;
+}
+
+.showtimeMovie .ant-tabs-top > .ant-tabs-nav::before {
+  display: none;
+}
+
+.showtimeMovie .ant-tabs-top > .ant-tabs-nav .ant-tabs-ink-bar {
+  display: none !important;
+}
+
+.showtimeMovie .ant-tabs-tab {
+  font-size: 24px;
+  font-weight: 400;
+  color: #000;
+  transition: all 0.2s linear;
+  transform: scale(0.9);
+}
+
+.ant-tabs-tab-btn:focus,
+.ant-tabs-tab-remove:focus,
+.ant-tabs-tab-btn:active,
+.ant-tabs-tab-remove:active {
+  color: #ef4444;
+}
+
+.showtimeMovie .ant-tabs-tab.ant-tabs-tab-active {
+  color: #ef4444;
+  transform: scale(1);
+}
+
+.showtimeMovie .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: inherit;
+}
+
+.showtimeMovie .ant-tabs-tab:hover {
+  transform: scale(1);
+}
+
+.showtimeMovie .slick-prev {
+  left: -50px !important;
+}
+
+.showtimeMovie .slick-prev,
+.showtimeMovie .slick-next {
+  z-index: 1;
+}
+
+.showtimeMovie .slick-prev:before,
+.showtimeMovie .slick-next:before {
+  color: gray !important;
+  font-size: 3rem !important;
+}
+
+.showtimeMovie .width-item {
+  width: 100% !important;
+}

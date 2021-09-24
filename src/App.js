@@ -1,7 +1,4 @@
 import "./App.css";
-import "antd/dist/antd.css";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./views/Home";
 import Detail from "./views/Detail";

@@ -1,0 +1,7 @@
+.slickMovie .film:hover .film-info {
+  display: none;
+}
+
+.slickMovie .film:hover .film-btn {
+  display: block;
+}
