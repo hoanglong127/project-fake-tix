@@ -50,51 +50,48 @@ const settings = {
   ],
 };
 
-const ShowtimeMovie = (props) => {
-  const [modalTrailer, setModalTrailer] = useState(false);
+const ShowtimeMovie = ({ movieList }) => {
+  const moviesPlaying = movieList.filter((movie) => movie.dangChieu);
+  const moviesComing = movieList.filter((movie) => movie.sapChieu);
+  const [isModalTrailer, setIsModalTrailer] = useState(false);
   const [trailerId, setTrailerId] = useState(null);
 
   const handleOpenModalTrailer = (trailerURL) => {
-    setModalTrailer(true);
+    setIsModalTrailer(true);
     setTrailerId(trailerURL.substr(trailerURL.lastIndexOf("/")));
   };
 
   return (
     <Fragment>
-      <div className="showtimeMovie container mx-auto pt-16">
-        <Tabs defaultActiveKey="DangChieu">
+      <div className="showtimeMovie container mx-auto mt-16">
+        <Tabs centered defaultActiveKey="DangChieu">
           <TabPane tab="Đang chiếu" key="DangChieu">
             <div className="hidden md:block">
               <Slider {...settings}>
-                {props.movieList
-                  .filter((movie) => movie.dangChieu)
-                  .map((movie) => (
-                    <MovieItem
-                      movie={movie}
-                      handleOpenModalTrailer={handleOpenModalTrailer}
-                    />
-                  ))}
+                {moviesPlaying.map((movie) => (
+                  <MovieItem
+                    key={movie.maPhim}
+                    movie={movie}
+                    handleOpenModalTrailer={handleOpenModalTrailer}
+                  />
+                ))}
               </Slider>
             </div>
-            <ShowtimeMovieMobile movieList={props.movieList} isShowing={true} />
+            <ShowtimeMovieMobile movieList={moviesPlaying} />
           </TabPane>
           <TabPane tab="Sắp chiếu" key="SapChieu">
             <div className="hidden md:block">
               <Slider {...settings}>
-                {props.movieList
-                  .filter((movie) => movie.sapChieu)
-                  .map((movie) => (
-                    <MovieItem
-                      movie={movie}
-                      handleOpenModalTrailer={handleOpenModalTrailer}
-                    />
-                  ))}
+                {moviesComing.map((movie) => (
+                  <MovieItem
+                    key={movie.maPhim}
+                    movie={movie}
+                    handleOpenModalTrailer={handleOpenModalTrailer}
+                  />
+                ))}
               </Slider>
             </div>
-            <ShowtimeMovieMobile
-              movieList={props.movieList}
-              isShowing={false}
-            />
+            <ShowtimeMovieMobile movieList={moviesComing} />
           </TabPane>
         </Tabs>
       </div>
@@ -102,9 +99,9 @@ const ShowtimeMovie = (props) => {
       <ModalVideo
         channel="youtube"
         autoplay
-        isOpen={modalTrailer}
+        isOpen={isModalTrailer}
         videoId={trailerId}
-        onClose={() => setModalTrailer(false)}
+        onClose={() => setIsModalTrailer(false)}
       />
     </Fragment>
   );

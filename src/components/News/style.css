@@ -1,0 +1,59 @@
+.news .ant-tabs {
+  overflow: unset;
+}
+
+.news .ant-tabs-top > .ant-tabs-nav::before {
+  display: none;
+}
+
+.news .ant-tabs-top > .ant-tabs-nav .ant-tabs-ink-bar {
+  display: none !important;
+}
+
+.news .ant-tabs-tab {
+  font-size: 24px;
+  font-weight: 400;
+  color: #000;
+  transition: all 0.2s linear;
+  transform: scale(0.9);
+}
+
+.ant-tabs-tab-btn:focus,
+.ant-tabs-tab-remove:focus,
+.ant-tabs-tab-btn:active,
+.ant-tabs-tab-remove:active {
+  color: #ef4444;
+}
+
+.news .ant-tabs-tab.ant-tabs-tab-active {
+  color: #ef4444;
+  transform: scale(1);
+}
+
+.news .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: inherit;
+}
+
+.news .ant-tabs-tab:hover {
+  transform: scale(1);
+}
+
+.news .news-title,
+.news .news-desc {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+}
+
+.news .news-desc {
+  -webkit-line-clamp: 3;
+}
+
+@media screen and (max-width: 768px) {
+  .news .ant-tabs-tab {
+    font-size: 18px;
+  }
+}

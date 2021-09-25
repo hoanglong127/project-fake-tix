@@ -2,10 +2,6 @@
   overflow: unset;
 }
 
-.showtimeMovie .ant-tabs > .ant-tabs-nav .ant-tabs-nav-wrap {
-  justify-content: center;
-}
-
 .showtimeMovie .ant-tabs-top > .ant-tabs-nav::before {
   display: none;
 }

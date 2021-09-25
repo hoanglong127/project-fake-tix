@@ -3,11 +3,9 @@ import "./style.css";
 import { Link } from "react-router-dom";
 import PlayVideoIcon from "../../assets/images/play-video.png";
 
-const MovieItem = (props) => {
-  const { movie, handleOpenModalTrailer } = props;
-
+const MovieItem = ({ movie, handleOpenModalTrailer }) => {
   return (
-    <div key={movie.maPhim} className={`p-4 ${movie.dangChieu && "film"}`}>
+    <div className={`p-4 ${movie.dangChieu && "film"}`}>
       <div className="group relative rounded-md overflow-hidden">
         <Link to={`/detail/${movie.maPhim}`}>
           <img

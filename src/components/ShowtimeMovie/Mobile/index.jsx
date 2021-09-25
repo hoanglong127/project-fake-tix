@@ -1,20 +1,17 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const ShowtimeMovieMobile = (props) => {
-  const { movieList, isShowing } = props;
-  const [limit, setLimit] = useState(true);
+const ShowtimeMovieMobile = ({ movieList }) => {
+  const [isLimit, setIsLimit] = useState(true);
 
-  const handleSetLimit = () => {
-    setLimit(!limit);
+  const handleSetIsLimit = () => {
+    setIsLimit(!isLimit);
   };
 
   const renderMovieItem = () => {
-    const newMovieList = limit
-      ? movieList.filter((movie) => movie.dangChieu === isShowing).splice(0, 6)
-      : movieList.filter((movie) => movie.dangChieu === isShowing);
+    const list = isLimit ? movieList.slice(0, 6) : movieList;
 
-    return newMovieList.map((movie) => (
+    return list.map((movie) => (
       <div key={movie.maPhim}>
         <Link to={`/detail/${movie.maPhim}`}>
           <img
@@ -37,16 +34,16 @@ const ShowtimeMovieMobile = (props) => {
     <div className="md:hidden ">
       <div className="grid grid-cols-2 gap-5">{renderMovieItem()}</div>
       <div className="text-center mt-7">
-        {limit ? (
+        {isLimit ? (
           <button
-            onClick={handleSetLimit}
+            onClick={handleSetIsLimit}
             className="px-5 py-2 border border-gray-400 text-gray-600 text-base rounded"
           >
             Xem thêm
           </button>
         ) : (
           <button
-            onClick={handleSetLimit}
+            onClick={handleSetIsLimit}
             className="px-5 py-2 border border-gray-400 text-gray-600 text-base rounded"
           >
             Thu gọn

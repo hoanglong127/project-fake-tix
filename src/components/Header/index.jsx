@@ -58,7 +58,7 @@ const Header = () => {
           <button className="hidden sm:inline-block bg-red-500 hover:bg-red-600 text-white font-bold text-base px-5 py-2 rounded-md transition-all duration-300">
             Đăng nhập
           </button>
-          <button onClick={handleSetIsSidebar} className="p-4 sm:hidden">
+          <button onClick={handleSetIsSidebar} className="sm:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

@@ -13,7 +13,6 @@ export const fetchMovieList = async (dispatch) => {
       },
     });
 
-    console.log(res);
     dispatch(createAction(actionTypes.SET_MOVIE_LIST, res.data.content));
   } catch (err) {
     console.log(err);
