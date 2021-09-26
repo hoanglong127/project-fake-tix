@@ -1,6 +1,6 @@
 import createAction from ".";
 import { request } from "../../api/request";
-import { DOMAIN } from "../../utils/settings";
+import { DOMAIN, GROUP_ID } from "../../utils/settings";
 import actionTypes from "../types";
 
 export const fetchTheaterSystemInfo = async (dispatch) => {
@@ -12,6 +12,23 @@ export const fetchTheaterSystemInfo = async (dispatch) => {
 
     dispatch(
       createAction(actionTypes.SET_THEATER_SYSTEM_INFO, res.data.content)
+    );
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const fetchTheaterSystemShowtime = async (dispatch) => {
+  try {
+    const res = await request({
+      method: "GET",
+      url: `${DOMAIN}/api/QuanLyRap/LayThongTinLichChieuHeThongRap`,
+      params: { MaNhom: GROUP_ID },
+    });
+
+    console.log(res);
+    dispatch(
+      createAction(actionTypes.SET_THEATER_SYSTEM_SHOWTIME, res.data.content)
     );
   } catch (err) {
     console.log(err);

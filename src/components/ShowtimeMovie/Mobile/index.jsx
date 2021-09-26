@@ -1,33 +1,24 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { scroller } from "react-scroll";
+import MovieItem from "../../MovieItem";
 
 const ShowtimeMovieMobile = ({ movieList }) => {
   const [isLimit, setIsLimit] = useState(true);
 
   const handleSetIsLimit = () => {
+    if (!isLimit) {
+      scroller.scrollTo("lichChieu", {
+        duration: 800,
+        smooth: "easeInOutQuart",
+      });
+    }
+
     setIsLimit(!isLimit);
   };
 
   const renderMovieItem = () => {
     const list = isLimit ? movieList.slice(0, 6) : movieList;
-
-    return list.map((movie) => (
-      <div key={movie.maPhim}>
-        <Link to={`/detail/${movie.maPhim}`}>
-          <img
-            className="w-full h-60 rounded-md"
-            src={movie.hinhAnh}
-            alt={movie.tenPhim}
-          />
-          <div className="flex items-center mt-3">
-            <span className="bg-red-600 text-white px-1 rounded mr-2">C18</span>
-            <h4 className="text-base font-bold mb-0 truncate">
-              {movie.tenPhim}
-            </h4>
-          </div>
-        </Link>
-      </div>
-    ));
+    return list.map((movie) => <MovieItem key={movie.maPhim} movie={movie} />);
   };
 
   return (

@@ -7,6 +7,7 @@ const actionTypes = {
 
   // CINEMA TYPE
   SET_THEATER_SYSTEM_INFO: "SET_THEATER_SYSTEM_INFO",
+  SET_THEATER_SYSTEM_SHOWTIME: "SET_THEATER_SYSTEM_SHOWTIME",
 };
 
 export default actionTypes;

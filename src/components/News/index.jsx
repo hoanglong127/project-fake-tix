@@ -182,7 +182,7 @@ const News = () => {
     const list = newsList.filter((item) => item.loaiTin === type);
 
     return (
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {list.map((item) => (
           <div key={item.maTin}>
             <a href={item.link} target="_blank" rel="noopener noreferrer">
@@ -207,7 +207,7 @@ const News = () => {
   };
 
   return (
-    <div className="news container mx-auto mt-16">
+    <div id="tinTuc" className="news container mx-auto pt-16">
       <Tabs centered defaultActiveKey="dienAnh">
         <TabPane tab="Điện ảnh 24h" key="dienAnh">
           {renderNews("dien-anh")}

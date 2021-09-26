@@ -1,6 +1,8 @@
 import { Tabs } from "antd";
 import React, { Fragment, useState } from "react";
 import "./style.css";
+import backSession from "../../assets/images/back-session.png";
+import nextSession from "../../assets/images/next-session.png";
 import Slider from "react-slick";
 import ModalVideo from "react-modal-video";
 import MovieItem from "../MovieItem";
@@ -9,24 +11,27 @@ import ShowtimeMovieMobile from "./Mobile";
 const { TabPane } = Tabs;
 
 function NextArrow(props) {
-  const { className, style, onClick } = props;
+  const { onClick } = props;
   return (
     <div
-      className={`${className}`}
-      style={{ ...style, display: "block" }}
       onClick={onClick}
-    />
+      className="absolute top-1/2 -right-8 lg:-right-12 transform -translate-y-1/2 cursor-pointer"
+    >
+      <img className="w-8 lg:w-11" src={nextSession} alt="nextSession" />
+    </div>
   );
 }
 
 function PrevArrow(props) {
-  const { className, style, onClick } = props;
+  const { onClick } = props;
   return (
     <div
-      className={`${className}`}
-      style={{ ...style, display: "block" }}
+      // style={{ left: "-50px" }}
       onClick={onClick}
-    />
+      className="absolute top-1/2 -left-8 lg:-left-12 transform -translate-y-1/2 cursor-pointer"
+    >
+      <img className="w-8 lg:w-11" src={backSession} alt="backSession" />
+    </div>
   );
 }
 
@@ -51,7 +56,7 @@ const settings = {
 };
 
 const ShowtimeMovie = ({ movieList }) => {
-  const moviesPlaying = movieList.filter((movie) => movie.dangChieu);
+  const moviesShowing = movieList.filter((movie) => movie.dangChieu);
   const moviesComing = movieList.filter((movie) => movie.sapChieu);
   const [isModalTrailer, setIsModalTrailer] = useState(false);
   const [trailerId, setTrailerId] = useState(null);
@@ -63,12 +68,12 @@ const ShowtimeMovie = ({ movieList }) => {
 
   return (
     <Fragment>
-      <div className="showtimeMovie container mx-auto mt-16">
+      <div id="lichChieu" className="showtimeMovie container mx-auto pt-16">
         <Tabs centered defaultActiveKey="DangChieu">
           <TabPane tab="Đang chiếu" key="DangChieu">
             <div className="hidden md:block">
               <Slider {...settings}>
-                {moviesPlaying.map((movie) => (
+                {moviesShowing.map((movie) => (
                   <MovieItem
                     key={movie.maPhim}
                     movie={movie}
@@ -77,7 +82,7 @@ const ShowtimeMovie = ({ movieList }) => {
                 ))}
               </Slider>
             </div>
-            <ShowtimeMovieMobile movieList={moviesPlaying} />
+            <ShowtimeMovieMobile movieList={moviesShowing} />
           </TabPane>
           <TabPane tab="Sắp chiếu" key="SapChieu">
             <div className="hidden md:block">

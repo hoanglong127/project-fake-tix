@@ -1,0 +1,33 @@
+.theaters
+  .ant-tabs-left
+  > .ant-tabs-content-holder
+  > .ant-tabs-content
+  > .ant-tabs-tabpane,
+.ant-tabs-left
+  > div
+  > .ant-tabs-content-holder
+  > .ant-tabs-content
+  > .ant-tabs-tabpane {
+  padding-left: 0;
+}
+
+.theaters .ant-tabs-left > .ant-tabs-nav .ant-tabs-tab {
+  text-align: left;
+  padding: 28px 24px;
+}
+
+.theaters .ant-tabs-ink-bar {
+  background: rgb(239, 68, 68);
+}
+
+.theaters .theaters-item .ant-tabs-nav {
+  min-width: 308px;
+}
+
+.theaters .theaters-item-info {
+  max-width: 200px;
+}
+
+.theater-movies .theater-movies-item:last-child {
+  border-bottom: none;
+}

@@ -1,14 +1,30 @@
 import React from "react";
 import { useState } from "react";
 import { Fragment } from "react";
-import { Link } from "react-router-dom";
+import { useLocation, useHistory, Link } from "react-router-dom";
+import { scroller } from "react-scroll";
 import logo from "../../assets/images/logo.png";
 
 const Header = () => {
   const [isSidebar, setIsSidebar] = useState(false);
+  const location = useLocation();
+  const history = useHistory();
 
   const handleSetIsSidebar = () => {
     setIsSidebar(!isSidebar);
+  };
+
+  const handleClickLink = (id) => {
+    if (location.pathname === "/") {
+      scroller.scrollTo(id, {
+        duration: 800,
+        smooth: "easeInOutQuart",
+      });
+
+      isSidebar && setIsSidebar(false);
+    } else {
+      history.push("/", id);
+    }
   };
 
   return (
@@ -21,41 +37,38 @@ const Header = () => {
           <Link to="/">
             <img className="w-12" src={logo} alt="logo" />
           </Link>
-          <ul className="hidden sm:flex items-center mb-0">
+          <ul className="hidden md:flex items-center mb-0">
             <li className="px-3">
-              <Link
-                to="/"
-                className="font-medium text-base text-black hover:text-red-500 transition-all duration-300"
+              <span
+                onClick={() => handleClickLink("lichChieu")}
+                className="font-medium text-base text-black hover:text-red-500 cursor-pointer transition-all duration-300"
               >
                 Lịch chiếu
-              </Link>
+              </span>
             </li>
             <li className="px-3">
-              <Link
-                to="/"
-                className="font-medium text-base text-black hover:text-red-500 transition-all duration-300"
+              <span
+                onClick={() => handleClickLink("cumRap")}
+                className="font-medium text-base text-black hover:text-red-500 cursor-pointer transition-all duration-300"
               >
                 Cụm rạp
-              </Link>
+              </span>
             </li>
             <li className="px-3">
-              <Link
-                to="/"
-                className="font-medium text-base text-black hover:text-red-500 transition-all duration-300"
+              <span
+                onClick={() => handleClickLink("tinTuc")}
+                className="font-medium text-base text-black hover:text-red-500 cursor-pointer transition-all duration-300"
               >
                 Tin tức
-              </Link>
+              </span>
             </li>
             <li className="px-3">
-              <Link
-                to="/"
-                className="font-medium text-base text-black hover:text-red-600 transition-all duration-300"
-              >
+              <span className="font-medium text-base text-black hover:text-red-600 cursor-pointer transition-all duration-300">
                 Ứng dụng
-              </Link>
+              </span>
             </li>
           </ul>
-          <button className="hidden sm:inline-block bg-red-500 hover:bg-red-600 text-white font-bold text-base px-5 py-2 rounded-md transition-all duration-300">
+          <button className="hidden md:inline-block bg-red-500 hover:bg-red-600 text-white font-bold text-base px-5 py-2 rounded-md transition-all duration-300">
             Đăng nhập
           </button>
           <button onClick={handleSetIsSidebar} className="sm:hidden">
@@ -78,7 +91,7 @@ const Header = () => {
       </header>
 
       {/* SIDEBAR HEADER MOBILE */}
-      <div className="sm:hidden absolute top-0 left-0 right-0 bottom-0">
+      <div className="md:hidden absolute top-0 left-0 right-0 bottom-0">
         <div
           onClick={handleSetIsSidebar}
           className={`fixed w-full h-full bg-black opacity-50 cursor-pointer z-50 ${
@@ -116,36 +129,33 @@ const Header = () => {
           </div>
           <ul className="mt-4">
             <li className="p-3">
-              <Link
-                to="/"
-                className="font-medium text-base text-black hover:text-red-500 transition-all duration-300"
+              <span
+                onClick={() => handleClickLink("lichChieu")}
+                className="font-medium text-base text-black cursor-pointer hover:text-red-500 transition-all duration-300"
               >
                 Lịch chiếu
-              </Link>
+              </span>
             </li>
             <li className="p-3">
-              <Link
-                to="/"
-                className="font-medium text-base text-black hover:text-red-500 transition-all duration-300"
+              <span
+                onClick={() => handleClickLink("cumRap")}
+                className="font-medium text-base text-black cursor-pointer hover:text-red-500 transition-all duration-300"
               >
                 Cụm rạp
-              </Link>
+              </span>
             </li>
             <li className="p-3">
-              <Link
-                to="/"
-                className="font-medium text-base text-black hover:text-red-500 transition-all duration-300"
+              <span
+                onClick={() => handleClickLink("tinTuc")}
+                className="font-medium text-base text-black cursor-pointer hover:text-red-500 transition-all duration-300"
               >
                 Tin tức
-              </Link>
+              </span>
             </li>
             <li className="p-3">
-              <Link
-                to="/"
-                className="font-medium text-base text-black hover:text-red-600 transition-all duration-300"
-              >
+              <span className="font-medium text-base text-black cursor-pointer hover:text-red-600 transition-all duration-300">
                 Ứng dụng
-              </Link>
+              </span>
             </li>
           </ul>
         </div>

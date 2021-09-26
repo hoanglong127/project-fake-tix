@@ -6,6 +6,7 @@ import Signin from "./views/Signin";
 import Signup from "./views/Signup";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import ButtonScrollTop from "./components/ButtonScrollTop";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       </Switch>
 
       <Footer />
+      <ButtonScrollTop />
     </BrowserRouter>
   );
 }
