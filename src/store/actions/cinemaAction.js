@@ -26,7 +26,6 @@ export const fetchTheaterSystemShowtime = async (dispatch) => {
       params: { MaNhom: GROUP_ID },
     });
 
-    console.log(res);
     dispatch(
       createAction(actionTypes.SET_THEATER_SYSTEM_SHOWTIME, res.data.content)
     );

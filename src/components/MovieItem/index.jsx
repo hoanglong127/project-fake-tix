@@ -7,7 +7,7 @@ import moment from "moment";
 
 const MovieItem = ({ movie, handleOpenModalTrailer }) => {
   return (
-    <div className={`md:p-4 ${movie.dangChieu && "md:film"}`}>
+    <div className={`md:p-4 ${movie.dangChieu && "film"}`}>
       <div className="group relative rounded-md overflow-hidden">
         <Link to={`/detail/${movie.maPhim}`}>
           <img

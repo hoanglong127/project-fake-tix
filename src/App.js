@@ -4,24 +4,26 @@ import Home from "./views/Home";
 import Detail from "./views/Detail";
 import Signin from "./views/Signin";
 import Signup from "./views/Signup";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import ButtonScrollTop from "./components/ButtonScrollTop";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchUserInfo } from "./store/actions/authAction";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (localStorage.getItem("t")) dispatch(fetchUserInfo);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <BrowserRouter>
-      <Header />
-
       <Switch>
         <Route path="/signup" component={Signup} />
         <Route path="/signin" component={Signin} />
         <Route path="/detail/:id" component={Detail} />
         <Route exact path="/" component={Home} />
       </Switch>
-
-      <Footer />
-      <ButtonScrollTop />
     </BrowserRouter>
   );
 }

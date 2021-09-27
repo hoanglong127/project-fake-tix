@@ -1,12 +1,18 @@
 import React from "react";
 import { useState } from "react";
 import { Fragment } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useHistory, Link } from "react-router-dom";
 import { scroller } from "react-scroll";
+import Swal from "sweetalert2";
 import logo from "../../assets/images/logo.png";
+import { logOut } from "../../store/actions/authAction";
+import User from "./User";
 
 const Header = () => {
   const [isSidebar, setIsSidebar] = useState(false);
+  const userInfo = useSelector((state) => state.authReducer.userInfo);
+  const dispatch = useDispatch();
   const location = useLocation();
   const history = useHistory();
 
@@ -25,6 +31,30 @@ const Header = () => {
     } else {
       history.push("/", id);
     }
+  };
+
+  const handleLogout = () => {
+    Swal.fire({
+      icon: "question",
+      title: "Bạn có chắc muốn đăng xuất?",
+      showCancelButton: true,
+      confirmButtonText: "Đăng xuất",
+      cancelButtonText: "Huỷ",
+    }).then((res) => {
+      if (res.isConfirmed) {
+        dispatch(
+          logOut(() => {
+            Swal.fire({
+              icon: "success",
+              title: "Đã đăng xuất",
+              text: "Cám ơn bạn đã sử dụng Tix",
+            });
+
+            if (isSidebar) setIsSidebar(false);
+          })
+        );
+      }
+    });
   };
 
   return (
@@ -68,9 +98,26 @@ const Header = () => {
               </span>
             </li>
           </ul>
-          <button className="hidden md:inline-block bg-red-500 hover:bg-red-600 text-white font-bold text-base px-5 py-2 rounded-md transition-all duration-300">
-            Đăng nhập
-          </button>
+          <div className="hidden md:block">
+            {userInfo ? (
+              <div className="flex items-center">
+                <User userInfo={userInfo} />
+                <button
+                  onClick={handleLogout}
+                  className="text-base hover:text-red-600 transition-all duration-300"
+                >
+                  Đăng xuất
+                </button>
+              </div>
+            ) : (
+              <Link
+                to="/signin"
+                className="hidden md:inline-block bg-red-500 hover:bg-red-600 text-white hover:text-white font-bold text-base px-5 py-2 rounded-md transition-all duration-300"
+              >
+                Đăng nhập
+              </Link>
+            )}
+          </div>
           <button onClick={handleSetIsSidebar} className="sm:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -104,9 +151,18 @@ const Header = () => {
           }`}
         >
           <div className="flex justify-between items-center">
-            <button className="bg-red-500 hover:bg-red-600 text-white font-bold text-base px-5 py-2 rounded-md transition-all duration-300">
-              Đăng nhập
-            </button>
+            {userInfo ? (
+              <div className="flex items-center">
+                <User userInfo={userInfo} />
+              </div>
+            ) : (
+              <Link
+                to="/signin"
+                className="bg-red-500 hover:bg-red-600 text-white hover:text-white font-bold text-base px-5 py-2 rounded-md transition-all duration-300"
+              >
+                Đăng nhập
+              </Link>
+            )}
             <button
               onClick={handleSetIsSidebar}
               className="hover:text-gray-300 transition-all duration-300"
@@ -157,6 +213,16 @@ const Header = () => {
                 Ứng dụng
               </span>
             </li>
+            {userInfo && (
+              <li className="p-3">
+                <button
+                  onClick={handleLogout}
+                  className="font-medium text-base hover:text-red-600 transition-all duration-300"
+                >
+                  Đăng xuất
+                </button>
+              </li>
+            )}
           </ul>
         </div>
       </div>

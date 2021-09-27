@@ -8,9 +8,7 @@ export const fetchMovieList = async (dispatch) => {
     const res = await request({
       method: "GET",
       url: `${DOMAIN}/api/QuanLyPhim/LayDanhSachPhim`,
-      params: {
-        maNhom: GROUP_ID,
-      },
+      params: { MaNhom: GROUP_ID },
     });
 
     dispatch(createAction(actionTypes.SET_MOVIE_LIST, res.data.content));

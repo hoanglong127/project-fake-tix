@@ -1,7 +1,9 @@
-.film:hover .film-info {
-  display: none;
-}
+@media screen and (min-width: 768px) {
+  .film:hover .film-info {
+    display: none;
+  }
 
-.film:hover .film-btn {
-  display: block;
+  .film:hover .film-btn {
+    display: block;
+  }
 }

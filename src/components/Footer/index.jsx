@@ -147,7 +147,10 @@ const Footer = () => {
             </p>
             <p className="mb-0 text-sm text-gray-300">
               Email:{" "}
-              <a className="text-red-500 hover:text-red-500" href="#">
+              <a
+                className="text-red-500 hover:text-red-500"
+                href="mailto:support@tix.vn"
+              >
                 support@tix.vn
               </a>
             </p>

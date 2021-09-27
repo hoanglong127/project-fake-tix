@@ -4,11 +4,17 @@ import arrowTop from "../../assets/images/black-arrow-pointing-up.png";
 const ButtonScrollTop = () => {
   const [isVisible, setIsVisible] = useState(false);
 
+  const handleSetIsVisible = () => {
+    if (window.pageYOffset > 600) setIsVisible(true);
+    else setIsVisible(false);
+  };
+
   useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.pageYOffset > 600) setIsVisible(true);
-      else setIsVisible(false);
-    });
+    window.addEventListener("scroll", handleSetIsVisible);
+
+    return () => {
+      window.removeEventListener("scroll", handleSetIsVisible);
+    };
   }, []);
 
   const handleScrollTop = () => {
