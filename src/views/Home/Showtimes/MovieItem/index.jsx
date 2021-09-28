@@ -1,9 +1,9 @@
 import React from "react";
-import "./style.css";
-import { Link } from "react-router-dom";
-import PlayVideoIcon from "../../assets/images/play-video.png";
-import BlockRating from "../BlockRating";
 import moment from "moment";
+import { Rate } from "antd";
+import { Link } from "react-router-dom";
+import "./style.css";
+import PlayVideoIcon from "../../../../assets/images/play-video.png";
 
 const MovieItem = ({ movie, handleOpenModalTrailer }) => {
   return (
@@ -22,10 +22,20 @@ const MovieItem = ({ movie, handleOpenModalTrailer }) => {
             }}
           ></div>
           {movie.dangChieu ? (
-            <BlockRating point={movie.danhGia} />
+            <div
+              className="film-rating absolute top-2 right-2 text-center px-2 pt-1 rounded-md"
+              style={{ backgroundColor: "rgba(12,27,54,.8)" }}
+            >
+              <p className="-mb-2 text-base text-white">{movie.danhGia}</p>
+              <Rate
+                allowHalf
+                defaultValue={(movie.danhGia * 5) / 10}
+                disabled
+              />
+            </div>
           ) : (
             <div
-              className="blockRating absolute top-2 right-2 text-center px-2 py-1 rounded-md"
+              className="absolute top-2 right-2 text-center px-2 py-1 rounded-md"
               style={{ backgroundColor: "rgba(12,27,54,.8)" }}
             >
               <p className="mb-0 text-base text-white">

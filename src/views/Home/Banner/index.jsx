@@ -1,5 +1,5 @@
-import { Carousel } from "antd";
 import React from "react";
+import { Carousel } from "antd";
 import "./style.css";
 
 const Banner = (props) => {

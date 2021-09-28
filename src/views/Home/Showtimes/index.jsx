@@ -1,12 +1,12 @@
-import { Tabs } from "antd";
 import React, { Fragment, useState } from "react";
-import "./style.css";
-import backSession from "../../assets/images/back-session.png";
-import nextSession from "../../assets/images/next-session.png";
-import Slider from "react-slick";
+import { Tabs } from "antd";
 import ModalVideo from "react-modal-video";
-import MovieItem from "../MovieItem";
+import Slider from "react-slick";
+import "./style.css";
+import MovieItem from "./MovieItem";
 import ShowtimeMovieMobile from "./Mobile";
+import backSession from "../../../assets/images/back-session.png";
+import nextSession from "../../../assets/images/next-session.png";
 
 const { TabPane } = Tabs;
 
@@ -26,7 +26,6 @@ function PrevArrow(props) {
   const { onClick } = props;
   return (
     <div
-      // style={{ left: "-50px" }}
       onClick={onClick}
       className="absolute top-1/2 -left-8 lg:-left-12 transform -translate-y-1/2 cursor-pointer"
     >
@@ -58,10 +57,10 @@ const settings = {
 };
 
 const ShowtimeMovie = ({ movieList }) => {
-  const moviesShowing = movieList.filter((movie) => movie.dangChieu);
-  const moviesComing = movieList.filter((movie) => movie.sapChieu);
   const [isModalTrailer, setIsModalTrailer] = useState(false);
   const [trailerId, setTrailerId] = useState(null);
+  const moviesShowing = movieList.filter((movie) => movie.dangChieu);
+  const moviesComing = movieList.filter((movie) => movie.sapChieu);
 
   const handleOpenModalTrailer = (trailerURL) => {
     setIsModalTrailer(true);

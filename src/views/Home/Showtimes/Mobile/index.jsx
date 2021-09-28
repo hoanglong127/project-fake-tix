@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { scroller } from "react-scroll";
-import MovieItem from "../../MovieItem";
+import MovieItem from "../MovieItem";
 
 const ShowtimeMovieMobile = ({ movieList }) => {
   const [isLimit, setIsLimit] = useState(true);
@@ -25,21 +25,12 @@ const ShowtimeMovieMobile = ({ movieList }) => {
     <div className="md:hidden ">
       <div className="grid grid-cols-2 gap-5">{renderMovieItem()}</div>
       <div className="text-center mt-7">
-        {isLimit ? (
-          <button
-            onClick={handleSetIsLimit}
-            className="px-5 py-2 border border-gray-400 text-gray-600 text-base rounded"
-          >
-            Xem thêm
-          </button>
-        ) : (
-          <button
-            onClick={handleSetIsLimit}
-            className="px-5 py-2 border border-gray-400 text-gray-600 text-base rounded"
-          >
-            Thu gọn
-          </button>
-        )}
+        <button
+          onClick={handleSetIsLimit}
+          className="px-5 py-2 border border-gray-400 text-gray-600 text-base rounded"
+        >
+          {isLimit ? "Xem thêm" : "Thu gọn"}
+        </button>
       </div>
     </div>
   );

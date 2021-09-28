@@ -1,11 +1,11 @@
-import { useFormik } from "formik";
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
-import AuthLayout from "../../HOCs/Layouts/AuthLayout";
+import { useFormik } from "formik";
 import * as yup from "yup";
+import { Link, useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { signIn } from "../../store/actions/authAction";
 import Swal from "sweetalert2";
+import AuthLayout from "../../HOCs/Layouts/AuthLayout";
+import { signIn } from "../../store/actions/authAction";
 
 const schema = yup.object().shape({
   taiKhoan: yup.string().required("Vui lòng nhập tài khoản"),

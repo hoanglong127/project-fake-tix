@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import facebookLogo from "../../assets/images/facebook-logo.png";
 import zaloLogo from "../../assets/images/zalo-logo.png";
 import androidLogo from "../../assets/images/android-logo.png";
 import appleLogo from "../../assets/images/apple-logo.png";
 import zionLogo from "../../assets/images/zion-logo.jpg";
 import boCongThuong from "../../assets/images/boCongThuong.png";
-import { useDispatch, useSelector } from "react-redux";
 import { fetchTheaterSystemInfo } from "../../store/actions/cinemaAction";
 
 const Footer = () => {
@@ -16,7 +16,6 @@ const Footer = () => {
 
   useEffect(() => {
     dispatch(fetchTheaterSystemInfo);
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
