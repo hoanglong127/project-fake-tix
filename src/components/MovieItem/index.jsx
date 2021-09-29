@@ -3,7 +3,7 @@ import moment from "moment";
 import { Rate } from "antd";
 import { Link } from "react-router-dom";
 import "./style.css";
-import PlayVideoIcon from "../../../../assets/images/play-video.png";
+import { IconPlayVideo } from "../../assets/images";
 
 const MovieItem = ({ movie, handleOpenModalTrailer }) => {
   return (
@@ -50,8 +50,8 @@ const MovieItem = ({ movie, handleOpenModalTrailer }) => {
         >
           <img
             className="w-12 hover:opacity-70 transition-all"
-            src={PlayVideoIcon}
-            alt="PlayVideoIcon"
+            src={IconPlayVideo}
+            alt="IconPlayVideo"
           />
         </button>
       </div>

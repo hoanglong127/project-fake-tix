@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import facebookLogo from "../../assets/images/facebook-logo.png";
-import zaloLogo from "../../assets/images/zalo-logo.png";
-import androidLogo from "../../assets/images/android-logo.png";
-import appleLogo from "../../assets/images/apple-logo.png";
-import zionLogo from "../../assets/images/zion-logo.jpg";
-import boCongThuong from "../../assets/images/boCongThuong.png";
+import {
+  LogoApple,
+  LogoAndroid,
+  LogoFacebook,
+  LogoZalo,
+  LogoZion,
+  LogoBoCongThuong,
+} from "../../assets/images/index";
 import { fetchTheaterSystemInfo } from "../../store/actions/cinemaAction";
 
 const Footer = () => {
@@ -90,7 +92,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img className="w-8" src={appleLogo} alt="appleLogo" />
+                <img className="w-8" src={LogoApple} alt="LogoApple" />
               </a>
               <a
                 className="inline-block"
@@ -98,7 +100,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img className="w-8" src={androidLogo} alt="androidLogo" />
+                <img className="w-8" src={LogoAndroid} alt="LogoAndroid" />
               </a>
             </div>
           </div>
@@ -111,7 +113,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img className="w-8" src={facebookLogo} alt="appleLogo" />
+                <img className="w-8" src={LogoFacebook} alt="LogoFacebook" />
               </a>
               <a
                 className="inline-block mr-3"
@@ -119,14 +121,14 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img className="w-8" src={zaloLogo} alt="androidLogo" />
+                <img className="w-8" src={LogoZalo} alt="LogoZalo" />
               </a>
             </div>
           </div>
         </div>
         <div className="grid grid-cols-12 gap-4 mt-5">
           <div className="col-span-4 md:col-span-1">
-            <img className="rounded-lg" src={zionLogo} alt="zionLogo" />
+            <img className="rounded-lg" src={LogoZion} alt="LogoZion" />
           </div>
           <div className="col-span-12 md:col-span-9">
             <h5 className="text-white text-sm mb-0">
@@ -155,7 +157,11 @@ const Footer = () => {
             </p>
           </div>
           <div className="col-span-6 md:col-span-2">
-            <img className="w-full" src={boCongThuong} alt="boCongThuong" />
+            <img
+              className="w-full"
+              src={LogoBoCongThuong}
+              alt="LogoBoCongThuong"
+            />
           </div>
         </div>
       </div>

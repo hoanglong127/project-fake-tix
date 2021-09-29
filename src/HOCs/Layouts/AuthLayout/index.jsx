@@ -1,14 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import background from "../../../assets/images/background.jpg";
-import logoGroup from "../../../assets/images/logo-group.png";
+import { Background, LogoGroup } from "../../../assets/images";
 
 const AuthLayout = ({ children }) => {
   return (
     <div
       className="min-h-screen flex items-center justify-center"
       style={{
-        backgroundImage: `url(${background})`,
+        backgroundImage: `url(${Background})`,
         backgroundSize: "contain",
         backgroundPosition: "center",
       }}
@@ -23,7 +22,7 @@ const AuthLayout = ({ children }) => {
           }}
         >
           <div className="mb-10">
-            <img src={logoGroup} alt="logo" className="w-2/3 mx-auto" />
+            <img src={LogoGroup} alt="LogoGroup" className="w-2/3 mx-auto" />
           </div>
           {children}
         </div>

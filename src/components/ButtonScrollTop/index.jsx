@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import arrowTop from "../../assets/images/black-arrow-pointing-up.png";
+import { IconArrowUp } from "../../assets/images";
 
 const ButtonScrollTop = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -28,7 +28,7 @@ const ButtonScrollTop = () => {
           onClick={handleScrollTop}
           className="fixed bottom-5 right-5 transform hover:-translate-y-1 transition-all duration-300"
         >
-          <img className="w-7 h-7" src={arrowTop} alt="arrowTop" />
+          <img className="w-7 h-7" src={IconArrowUp} alt="IconArrowUp" />
         </button>
       )}
     </Fragment>

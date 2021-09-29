@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-const User = ({ userInfo }) => {
+const UserAvatar = ({ userInfo }) => {
   return (
     <Fragment>
       <div className="relative">
@@ -16,4 +16,4 @@ const User = ({ userInfo }) => {
   );
 };
 
-export default User;
+export default UserAvatar;

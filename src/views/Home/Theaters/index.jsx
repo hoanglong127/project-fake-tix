@@ -1,6 +1,7 @@
+import React from "react";
 import { Tabs } from "antd";
 import moment from "moment";
-import React from "react";
+import { Link } from "react-router-dom";
 import "./style.css";
 
 const { TabPane } = Tabs;
@@ -30,12 +31,13 @@ const Theaters = ({ theaterSystemShowtime }) => {
         </div>
         <div className="flex gap-3 flex-wrap mt-5">
           {movie.lstLichChieuTheoPhim.slice(0, 10).map((showtime) => (
-            <button
+            <Link
+              to={`/checkout/${showtime.maLichChieu}`}
               key={showtime.maLichChieu}
-              className="px-2 py-1 text-green-500 text-base bg-gray-100 border border-gray-200 rounded-md"
+              className="px-2 py-1 text-green-500 hover:text-green-600 text-base bg-gray-100 hover:bg-gray-200 border border-gray-200 rounded-md transition-all duration-300"
             >
               {moment(showtime.ngayChieuGioChieu).format("hh:mm A")}
-            </button>
+            </Link>
           ))}
         </div>
       </div>

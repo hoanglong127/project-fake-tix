@@ -1,12 +1,10 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import { Tabs } from "antd";
-import ModalVideo from "react-modal-video";
 import Slider from "react-slick";
 import "./style.css";
-import MovieItem from "./MovieItem";
+import MovieItem from "../../../components/MovieItem";
 import ShowtimeMovieMobile from "./Mobile";
-import backSession from "../../../assets/images/back-session.png";
-import nextSession from "../../../assets/images/next-session.png";
+import { IconArrowNext, IconArrowPrev } from "../../../assets/images";
 
 const { TabPane } = Tabs;
 
@@ -17,7 +15,7 @@ function NextArrow(props) {
       onClick={onClick}
       className="absolute top-1/2 -right-8 lg:-right-12 transform -translate-y-1/2 cursor-pointer"
     >
-      <img className="w-8 lg:w-11" src={nextSession} alt="nextSession" />
+      <img className="w-8 lg:w-11" src={IconArrowNext} alt="IconArrowNext" />
     </div>
   );
 }
@@ -29,7 +27,7 @@ function PrevArrow(props) {
       onClick={onClick}
       className="absolute top-1/2 -left-8 lg:-left-12 transform -translate-y-1/2 cursor-pointer"
     >
-      <img className="w-8 lg:w-11" src={backSession} alt="backSession" />
+      <img className="w-8 lg:w-11" src={IconArrowPrev} alt="IconArrowPrev" />
     </div>
   );
 }
@@ -56,16 +54,9 @@ const settings = {
   ],
 };
 
-const ShowtimeMovie = ({ movieList }) => {
-  const [isModalTrailer, setIsModalTrailer] = useState(false);
-  const [trailerId, setTrailerId] = useState(null);
+const ShowtimeMovie = ({ movieList, handleOpenModalTrailer }) => {
   const moviesShowing = movieList.filter((movie) => movie.dangChieu);
   const moviesComing = movieList.filter((movie) => movie.sapChieu);
-
-  const handleOpenModalTrailer = (trailerURL) => {
-    setIsModalTrailer(true);
-    setTrailerId(trailerURL.substr(trailerURL.lastIndexOf("/")));
-  };
 
   return (
     <Fragment>
@@ -101,14 +92,6 @@ const ShowtimeMovie = ({ movieList }) => {
           </TabPane>
         </Tabs>
       </div>
-
-      <ModalVideo
-        channel="youtube"
-        autoplay
-        isOpen={isModalTrailer}
-        videoId={trailerId}
-        onClose={() => setIsModalTrailer(false)}
-      />
     </Fragment>
   );
 };

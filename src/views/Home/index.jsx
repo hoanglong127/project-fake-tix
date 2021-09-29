@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { Fragment, useEffect, useState } from "react";
+import ModalVideo from "react-modal-video";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import Banner from "./Banner";
@@ -18,6 +19,8 @@ const Home = () => {
   const theaterSystemShowtime = useSelector(
     (state) => state.cinemaReducer.theaterSystemShowtime
   );
+  const [isModalTrailer, setIsModalTrailer] = useState(false);
+  const [trailerId, setTrailerId] = useState(null);
 
   useEffect(() => {
     dispatch(fetchBannerList);
@@ -26,13 +29,30 @@ const Home = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const handleOpenModalTrailer = (trailerURL) => {
+    setIsModalTrailer(!isModalTrailer);
+    setTrailerId(trailerURL.substr(trailerURL.lastIndexOf("/")));
+  };
+
   return (
-    <MainLayout>
-      <Banner bannerList={bannerList} />
-      <Showtimes movieList={movieList} />
-      <Theaters theaterSystemShowtime={theaterSystemShowtime} />
-      <News newsList={newsList} />
-    </MainLayout>
+    <Fragment>
+      <MainLayout>
+        <Banner bannerList={bannerList} />
+        <Showtimes
+          movieList={movieList}
+          handleOpenModalTrailer={handleOpenModalTrailer}
+        />
+        <Theaters theaterSystemShowtime={theaterSystemShowtime} />
+        <News newsList={newsList} />
+      </MainLayout>
+      <ModalVideo
+        channel="youtube"
+        autoplay
+        isOpen={isModalTrailer}
+        videoId={trailerId}
+        onClose={() => setIsModalTrailer(false)}
+      />
+    </Fragment>
   );
 };
 

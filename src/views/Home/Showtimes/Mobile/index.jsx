@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { scroller } from "react-scroll";
-import MovieItem from "../MovieItem";
+import MovieItem from "../../../../components/MovieItem";
 
 const ShowtimeMovieMobile = ({ movieList }) => {
   const [isLimit, setIsLimit] = useState(true);

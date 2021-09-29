@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useHistory, Link } from "react-router-dom";
 import { scroller } from "react-scroll";
 import Swal from "sweetalert2";
-import User from "./User";
 import Menu from "./Menu";
-import logo from "../../assets/images/logo.png";
+import UserAvatar from "../UserAvatar";
+import { Logo } from "../../assets/images/index";
 import { logOut } from "../../store/actions/authAction";
 
 const Header = () => {
@@ -64,7 +64,7 @@ const Header = () => {
       >
         <div className="flex justify-between items-center px-5 py-2">
           <Link to="/">
-            <img className="w-12" src={logo} alt="logo" />
+            <img className="w-12" src={Logo} alt="Logo" />
           </Link>
 
           <div className="hidden md:block">
@@ -74,7 +74,7 @@ const Header = () => {
           <div className="hidden md:block">
             {userInfo ? (
               <div className="flex items-center">
-                <User userInfo={userInfo} />
+                <UserAvatar userInfo={userInfo} />
                 <button
                   onClick={handleLogout}
                   className="text-base hover:text-red-600 transition-all duration-300"
@@ -129,7 +129,7 @@ const Header = () => {
           <div className="flex justify-between items-center mb-5">
             {userInfo ? (
               <div className="flex items-center">
-                <User userInfo={userInfo} />
+                <UserAvatar userInfo={userInfo} />
               </div>
             ) : (
               <Link
