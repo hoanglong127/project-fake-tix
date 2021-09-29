@@ -20,7 +20,7 @@ const Footer = () => {
   }, []);
 
   return (
-    <div className="mt-16 py-8" style={{ backgroundColor: "#222222" }}>
+    <div className="py-8" style={{ backgroundColor: "#222222" }}>
       <div className="container mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pb-5 border-b border-gray-700">
           <div>

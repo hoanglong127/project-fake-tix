@@ -1,0 +1,108 @@
+.movieDetail .movieDetail-bg {
+  filter: blur(12px);
+}
+
+.movieDetail .c100 {
+  margin: 0 auto;
+  float: none;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.movieDetail .c100 > span {
+  color: #fff;
+}
+
+.movieDetail .c100:after {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.movieDetail .c100:hover:after {
+  top: 0.08em;
+  left: 0.08em;
+  width: 0.84em;
+  height: 0.84em;
+}
+
+.movieDetail .ant-tabs {
+  overflow: unset;
+}
+
+.movieDetail .ant-tabs-top > .ant-tabs-nav::before {
+  display: none;
+}
+
+.movieDetail .ant-tabs-top > .ant-tabs-nav .ant-tabs-ink-bar {
+  display: none !important;
+}
+
+.movieDetail .ant-tabs-tab {
+  font-size: 24px;
+  font-weight: 400;
+  color: #fff;
+  transition: all 0.2s linear;
+  transform: scale(0.9);
+}
+
+.movieDetail .ant-tabs-tab-btn:focus,
+.movieDetail .ant-tabs-tab-remove:focus,
+.movieDetail .ant-tabs-tab-btn:active,
+.movieDetail .ant-tabs-tab-remove:active {
+  color: #ef4444;
+}
+
+.movieDetail .ant-tabs-tab.ant-tabs-tab-active {
+  color: #ef4444;
+  transform: scale(1);
+}
+
+.movieDetail .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: inherit;
+}
+
+.movieDetail .ant-tabs-tab:hover {
+  transform: scale(1);
+}
+
+.movieDetail .ant-tabs-tab + .ant-tabs-tab {
+  margin-left: 50px;
+}
+
+.movieDetail-theaters .ant-tabs-tab {
+  transform: scale(1);
+}
+
+.movieDetail-theaters .ant-tabs-ink-bar {
+  background: rgb(239, 68, 68);
+}
+
+.movieDetail-theaters .ant-tabs-top > .ant-tabs-nav .ant-tabs-ink-bar {
+  display: block !important;
+}
+
+.movieDetail-theaters .ant-tabs-left > .ant-tabs-nav .ant-tabs-tab {
+  padding: 28px 24px;
+}
+
+.movieDetail-theaters .movieDetail-theaters-item:last-child {
+  border-bottom: none;
+}
+
+@media screen and (max-width: 768px) {
+  .movieDetail .ant-tabs-tab {
+    font-size: 20px;
+  }
+
+  .movieDetail-theaters .ant-tabs > .ant-tabs-nav .ant-tabs-nav-list {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .movieDetail-theaters .ant-tabs-tab + .ant-tabs-tab {
+    margin-left: 0;
+  }
+
+  .movieDetail-theaters .ant-tabs-tab {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}

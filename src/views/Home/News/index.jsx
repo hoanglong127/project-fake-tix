@@ -20,7 +20,7 @@ const News = ({ newsList }) => {
               />
             </a>
             <a href={item.link} target="_blank" rel="noopener noreferrer">
-              <h3 className="news-title mt-3 mb-1 text-base hover:text-red-500 transition-all duration-300">
+              <h3 className="news-title mt-3 mb-1 text-base font-medium hover:text-red-500 transition-all duration-300">
                 {item.tenTin}
               </h3>
             </a>
@@ -34,7 +34,7 @@ const News = ({ newsList }) => {
   };
 
   return (
-    <div id="tinTuc" className="news container mx-auto pt-16">
+    <div id="tinTuc" className="news container mx-auto py-16">
       <Tabs centered defaultActiveKey="dienAnh">
         <TabPane tab="Điện ảnh 24h" key="dienAnh">
           {renderNews("dien-anh")}
