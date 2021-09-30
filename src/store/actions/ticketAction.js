@@ -37,7 +37,7 @@ export const bookTickets = (id, list, alertSuccess) => {
 
       alertSuccess();
       dispatch(createAction(actionTypes.CLEAR_SEATS));
-      dispatch(createAction(actionTypes.SET_ACTIVED_TAB, "Result"));
+      dispatch(createAction(actionTypes.SET_ACTIVED_TAB, "HistoryBook"));
     } catch (err) {
       console.log(err);
     }

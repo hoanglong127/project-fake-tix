@@ -77,7 +77,7 @@ const Header = () => {
                 <UserAvatar userInfo={userInfo} />
                 <button
                   onClick={handleLogout}
-                  className="text-base hover:text-red-600 transition-all duration-300"
+                  className="ml-3 pl-3 border-l text-base hover:text-red-600 transition-all duration-300"
                 >
                   Đăng xuất
                 </button>

@@ -11,8 +11,14 @@
   background: #ef4444;
 }
 
+.checkout .seatList {
+  min-width: 600px;
+  overflow: auto hidden;
+}
+
 .seat {
   background-color: #6b7280;
+  margin: 3px;
 }
 
 .seatVip {
@@ -21,7 +27,6 @@
 
 .seatBooked {
   background-color: #ef4444;
-
   cursor: no-drop;
 }
 
@@ -30,6 +35,6 @@
 }
 
 .seatSomeoneBooking {
-  background-color: #6366f1;
+  background-color: #8b5cf6;
   cursor: no-drop;
 }

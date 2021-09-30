@@ -11,7 +11,7 @@ const UserAvatar = ({ userInfo }) => {
           className="w-8 h-8 border rounded-full bg-gray-500 border-gray-300"
         />
       </div>
-      <p className="px-2 mr-2 mb-0 text-base md:border-r">{userInfo.hoTen}</p>
+      <p className="ml-2 mb-0 text-base">{userInfo.hoTen}</p>
     </Fragment>
   );
 };

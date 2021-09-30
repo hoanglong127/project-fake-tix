@@ -4,7 +4,7 @@ import actionTypes from "../types";
 const initialState = {
   ticketRoomInfo: new TicketRoomInfo(),
   seatBookingList: [],
-  activedTab: "BookTickets",
+  activedTab: "TicketRoom",
 };
 
 const reducer = (state = initialState, { type, payload }) => {
