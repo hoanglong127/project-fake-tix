@@ -12,6 +12,11 @@ const actionTypes = {
 
   // AUTH TYPE
   SET_USER_INFO: "SET_USER_INFO",
+
+  // TICKET ROOM TYPE
+  SET_TICKET_ROOM_INFO: "SET_TICKET_ROOM_INFO",
+  ADD_SEAT: "ADD_SEAT",
+  CLEAR_SEATS: "CLEAR_SEATS",
 };
 
 export default actionTypes;

@@ -1,7 +1,8 @@
+import User from "../../models/user";
 import actionTypes from "../types";
 
 const initialState = {
-  userInfo: null,
+  userInfo: new User(),
 };
 
 const reducer = (state = initialState, { type, payload }) => {

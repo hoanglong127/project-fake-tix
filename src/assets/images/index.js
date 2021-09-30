@@ -10,6 +10,7 @@ import IconPlayVideo from "./play-video-icon.png";
 import IconArrowNext from "./arrow-next.png";
 import IconArrowPrev from "./arrow-prev.png";
 import IconArrowUp from "./arrow-up.png";
+import IconInfo from "./info-icon.png";
 import Background from "./background.jpg";
 import Screen from "./screen.png";
 
@@ -26,6 +27,7 @@ export {
   IconArrowNext,
   IconArrowPrev,
   IconArrowUp,
+  IconInfo,
   Background,
   Screen,
 };

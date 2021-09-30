@@ -1,0 +1,35 @@
+.checkout .ant-tabs-tab-btn {
+  font-size: 18px;
+}
+
+.checkout .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn,
+.checkout .ant-tabs-tab:hover {
+  color: #ef4444;
+}
+
+.checkout .ant-tabs-ink-bar {
+  background: #ef4444;
+}
+
+.seat {
+  background-color: #6b7280;
+}
+
+.seatVip {
+  background-color: #f59e0b;
+}
+
+.seatBooked {
+  background-color: #ef4444;
+
+  cursor: no-drop;
+}
+
+.seatBooking {
+  background-color: #10b981;
+}
+
+.seatSomeoneBooking {
+  background-color: #6366f1;
+  cursor: no-drop;
+}
