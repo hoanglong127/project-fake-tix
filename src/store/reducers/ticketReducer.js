@@ -4,6 +4,7 @@ import actionTypes from "../types";
 const initialState = {
   ticketRoomInfo: new TicketRoomInfo(),
   seatBookingList: [],
+  activedTab: "BookTickets",
 };
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -27,6 +28,9 @@ const reducer = (state = initialState, { type, payload }) => {
       return { ...state };
     case actionTypes.CLEAR_SEATS:
       state.seatBookingList = [];
+      return { ...state };
+    case actionTypes.SET_ACTIVED_TAB:
+      state.activedTab = payload;
       return { ...state };
     default:
       return state;

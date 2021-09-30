@@ -13,10 +13,31 @@ export const fetchTicketRoomInfo = (id) => {
         params: { MaLichChieu: id },
       });
 
-      console.log(res);
       dispatch(
         createAction(actionTypes.SET_TICKET_ROOM_INFO, res.data.content)
       );
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
+// ĐẶT VÉ
+export const bookTickets = (id, list, alertSuccess) => {
+  return async (dispatch) => {
+    try {
+      await request({
+        method: "POST",
+        url: `${DOMAIN}/api/QuanLyDatVe/DatVe`,
+        data: {
+          maLichChieu: id,
+          danhSachVe: list,
+        },
+      });
+
+      alertSuccess();
+      dispatch(createAction(actionTypes.CLEAR_SEATS));
+      dispatch(createAction(actionTypes.SET_ACTIVED_TAB, "Result"));
     } catch (err) {
       console.log(err);
     }

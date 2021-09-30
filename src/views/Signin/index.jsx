@@ -51,7 +51,7 @@ const Signin = () => {
       signIn(
         values,
         () => {
-          history.push("/");
+          history.goBack();
         },
         (title) => {
           Swal.fire({

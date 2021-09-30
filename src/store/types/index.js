@@ -17,6 +17,7 @@ const actionTypes = {
   SET_TICKET_ROOM_INFO: "SET_TICKET_ROOM_INFO",
   ADD_SEAT: "ADD_SEAT",
   CLEAR_SEATS: "CLEAR_SEATS",
+  SET_ACTIVED_TAB: "SET_ACTIVED_TAB",
 };
 
 export default actionTypes;
