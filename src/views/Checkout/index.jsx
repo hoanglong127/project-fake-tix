@@ -2,8 +2,7 @@ import React, { useEffect } from "react";
 import Swal from "sweetalert2";
 import { Tabs } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router";
-import { Link } from "react-router-dom";
+import { useHistory, useParams } from "react-router";
 import "./style.css";
 import TicketRoom from "./TicketRoom";
 import HistoryBook from "./HistoryBook";
@@ -15,11 +14,13 @@ import {
 } from "../../store/actions/ticketAction";
 import { fetchUserInfo } from "../../store/actions/authAction";
 import UserAvatar from "../../components/UserAvatar";
+import { Background } from "../../assets/images";
 
 const { TabPane } = Tabs;
 
 const Checkout = () => {
   const params = useParams();
+  const history = useHistory();
   const dispatch = useDispatch();
   const userInfo = useSelector((state) => state.authReducer.userInfo);
   const { ticketRoomInfo, seatBookingList, activedTab } = useSelector(
@@ -65,34 +66,59 @@ const Checkout = () => {
     dispatch(createAction(actionTypes.ADD_SEAT, seat));
   };
 
+  const handleClickGoBack = () => {
+    history.goBack();
+  };
+
   return (
-    <div className="checkout p-5 lg:px-10 pb-4">
-      <div className="flex items-center justify-center md:justify-start">
-        <div className="flex items-center pr-3 mr-3 border-r">
-          <UserAvatar userInfo={userInfo} />
+    <div
+      className="checkout lg:px-10 bg-contain bg-center"
+      style={{
+        backgroundImage: `url(${Background})`,
+      }}
+    >
+      <div className="bg-white p-5">
+        <div className="flex items-center justify-between">
+          <button
+            onClick={handleClickGoBack}
+            className="flex items-center text-base italic underline text-gray-600 hover:text-gray-800"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+            <span>Quay lại</span>
+          </button>
+          <div className="flex items-center">
+            <UserAvatar userInfo={userInfo} />
+          </div>
         </div>
-        <Link
-          to="/"
-          className="text-base italic underline hover:underline text-purple-500 hover:text-purple-700"
-        >
-          Quay lại trang chủ
-        </Link>
+        <Tabs activeKey={activedTab} defaultActiveKey="TicketRoom" centered>
+          <TabPane tab="01 Đặt vé" key="TicketRoom">
+            <TicketRoom
+              userInfo={userInfo}
+              thongTinPhim={thongTinPhim}
+              danhSachGhe={danhSachGhe}
+              seatBookingList={seatBookingList}
+              handleClickSeat={handleClickSeat}
+              handleBookTickets={handleBookTickets}
+            />
+          </TabPane>
+          <TabPane tab="02 Kết quả đặt vé" key="HistoryBook">
+            <HistoryBook userInfo={userInfo} />
+          </TabPane>
+        </Tabs>
       </div>
-      <Tabs activeKey={activedTab} defaultActiveKey="TicketRoom" centered>
-        <TabPane tab="01 Đặt vé" key="TicketRoom">
-          <TicketRoom
-            userInfo={userInfo}
-            thongTinPhim={thongTinPhim}
-            danhSachGhe={danhSachGhe}
-            seatBookingList={seatBookingList}
-            handleClickSeat={handleClickSeat}
-            handleBookTickets={handleBookTickets}
-          />
-        </TabPane>
-        <TabPane tab="02 Kết quả đặt vé" key="HistoryBook">
-          <HistoryBook userInfo={userInfo} />
-        </TabPane>
-      </Tabs>
     </div>
   );
 };

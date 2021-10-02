@@ -5,11 +5,9 @@ import { Background, LogoGroup } from "../../../assets/images";
 const AuthLayout = ({ children }) => {
   return (
     <div
-      className="min-h-screen flex items-center justify-center"
+      className="min-h-screen flex items-center justify-center bg-contain bg-center"
       style={{
         backgroundImage: `url(${Background})`,
-        backgroundSize: "contain",
-        backgroundPosition: "center",
       }}
     >
       <div className="relative">

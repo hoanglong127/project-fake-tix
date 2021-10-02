@@ -71,7 +71,7 @@ const TicketRoom = ({
       </div>
       <div className="w-full lg:w-1/3 p-5 bg-gray-50">
         <div className="text-center mb-5">
-          <p className="mb-0 text-2xl md:text-3xl text-green-500 font-bold">
+          <p className="mb-0 text-xl md:text-2xl text-green-500 font-bold">
             {seatBookingList
               .reduce((total, seat) => (total += seat.giaVe), 0)
               .toLocaleString()}{" "}
@@ -80,9 +80,7 @@ const TicketRoom = ({
         </div>
         <hr />
         <div className="my-5 text-sm md:text-base">
-          <p className="text-base md:text-lg font-medium mb-1">
-            {thongTinPhim.tenPhim}
-          </p>
+          <p className="font-medium mb-1">{thongTinPhim.tenPhim}</p>
           <p className="mb-1">{thongTinPhim.tenCumRap}</p>
           <p>
             {thongTinPhim.ngayChieu} - {thongTinPhim.gioChieu} -{" "}
@@ -138,7 +136,7 @@ const TicketRoom = ({
           </p>
           <button
             onClick={handleBookTickets}
-            className="w-full mt-8 py-3 bg-green-400 text-white text-xl md:text-2xl rounded"
+            className="w-full mt-8 py-3 bg-green-400 text-white text-lg md:text-xl rounded"
           >
             Đặt vé
           </button>
