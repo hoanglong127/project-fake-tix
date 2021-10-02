@@ -118,7 +118,7 @@ const Detail = () => {
                 </div>
                 <Rate
                   allowHalf
-                  defaultValue={(movieShowtimeInfo?.danhGia * 5) / 10}
+                  value={movieShowtimeInfo?.danhGia / 2}
                   disabled
                 />
                 <p className="text-white mt-1 mb-0">16 người đánh giá</p>

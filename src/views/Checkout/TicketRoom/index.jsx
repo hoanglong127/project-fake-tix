@@ -1,5 +1,5 @@
 import _ from "lodash";
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { IconInfo, Screen } from "../../../assets/images";
 
 const TicketRoom = ({
@@ -10,6 +10,10 @@ const TicketRoom = ({
   handleClickSeat,
   handleBookTickets,
 }) => {
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, []);
+
   // Render danh sách ghế
   const renderSeats = () => {
     return danhSachGhe.map((seat, index) => {
@@ -26,6 +30,7 @@ const TicketRoom = ({
           <button
             onClick={() => handleClickSeat(seat)}
             className={`w-6 h-6 text-xs xl:w-8 xl:h-8 xl:text-sm rounded seat ${classSeatVip} ${classSeatBooked} ${classSeatBooking}`}
+            disabled={seat.daDat}
           >
             {seat.tenGhe}
           </button>
@@ -42,7 +47,7 @@ const TicketRoom = ({
           <div className="seatList pb-3">
             <img className="w-full" src={Screen} alt="Screen" />
             <div className="text-center">{renderSeats()}</div>
-            <div className="grid grid-cols-5 gap-5 max-w-xl mx-auto mt-5 text-xs">
+            <div className="grid grid-cols-4 gap-5 max-w-lg mx-auto mt-5 text-xs">
               <div className="flex flex-col items-center">
                 <span className="block w-5 h-5 rounded seat"></span>
                 <p className="text-center text-gray-600">Ghế thường</p>
@@ -58,12 +63,6 @@ const TicketRoom = ({
               <div className="flex flex-col items-center">
                 <span className="block w-5 h-5 rounded seat seatBooking"></span>
                 <p className="text-center text-gray-600">Ghế đang chọn</p>
-              </div>
-              <div className="flex flex-col items-center">
-                <span className="block w-5 h-5 rounded seat seatSomeoneBooking"></span>
-                <p className="text-center text-gray-600">
-                  Ghế người khác đang chọn
-                </p>
               </div>
             </div>
           </div>
@@ -114,14 +113,14 @@ const TicketRoom = ({
           <p className="text-sm md:text-base text-gray-500 font-medium">
             Email
           </p>
-          <p className="text-xs md:text-sm mb-0">{userInfo.email}</p>
+          <p className="text-xs md:text-sm mb-0">{userInfo?.email}</p>
         </div>
         <hr />
         <div className="my-5">
           <p className="text-sm md:text-base text-gray-500 font-medium">
             Điện thoại
           </p>
-          <p className="text-xs md:text-sm mb-0">{userInfo.soDt}</p>
+          <p className="text-xs md:text-sm mb-0">{userInfo?.soDt}</p>
         </div>
         <hr />
         <div className="my-5 text-center text-xs md:text-sm">

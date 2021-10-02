@@ -34,6 +34,7 @@ const Checkout = () => {
     dispatch(fetchTicketRoomInfo(id));
     dispatch(createAction(actionTypes.CLEAR_SEATS));
     dispatch(createAction(actionTypes.SET_ACTIVED_TAB, "TicketRoom"));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Xử lý đặt vé
@@ -66,6 +67,7 @@ const Checkout = () => {
     dispatch(createAction(actionTypes.ADD_SEAT, seat));
   };
 
+  // Xử lý quay lại trang trước
   const handleClickGoBack = () => {
     history.goBack();
   };
@@ -77,7 +79,7 @@ const Checkout = () => {
         backgroundImage: `url(${Background})`,
       }}
     >
-      <div className="bg-white p-5">
+      <div className="bg-white p-5 min-h-screen">
         <div className="flex items-center justify-between">
           <button
             onClick={handleClickGoBack}

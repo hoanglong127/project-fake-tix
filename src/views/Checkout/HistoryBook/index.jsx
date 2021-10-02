@@ -1,7 +1,11 @@
 import _ from "lodash";
-import React from "react";
+import React, { useEffect } from "react";
 
 const HistoryBook = ({ userInfo }) => {
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, []);
+
   return (
     <div className="container py-5 mx-auto">
       <div className="text-center mb-5">
@@ -13,7 +17,7 @@ const HistoryBook = ({ userInfo }) => {
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        {userInfo.thongTinDatVe.map((ticket) => (
+        {userInfo?.thongTinDatVe?.map((ticket) => (
           <div key={ticket.maVe} className="p-5 shadow rounded-md">
             <div className="flex items-center">
               <img

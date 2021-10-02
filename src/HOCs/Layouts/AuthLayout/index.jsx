@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Background, LogoGroup } from "../../../assets/images";
 
 const AuthLayout = ({ children }) => {
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  });
+
   return (
     <div
       className="min-h-screen flex items-center justify-center bg-contain bg-center"
