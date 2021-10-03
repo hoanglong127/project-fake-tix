@@ -7,10 +7,12 @@ import Showtimes from "./Showtimes";
 import Theaters from "./Theaters";
 import News from "./News";
 import MainLayout from "../../HOCs/Layouts/MainLayout";
+import newsList from "../../fake-data/news.json";
+import createAction from "../../store/actions";
+import actionTypes from "../../store/types";
 import { fetchBannerList } from "../../store/actions/bannerAction";
 import { fetchTheaterSystemShowtime } from "../../store/actions/cinemaAction";
 import { fetchMovieList } from "../../store/actions/movieAction";
-import newsList from "../../fake-data/news.json";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -23,9 +25,16 @@ const Home = () => {
   const [trailerId, setTrailerId] = useState(null);
 
   useEffect(() => {
-    dispatch(fetchBannerList);
-    dispatch(fetchMovieList);
-    dispatch(fetchTheaterSystemShowtime);
+    async function fetchAPI() {
+      dispatch(createAction(actionTypes.DISPLAY_LOADING));
+
+      await dispatch(fetchBannerList);
+      await dispatch(fetchMovieList);
+      await dispatch(fetchTheaterSystemShowtime);
+
+      dispatch(createAction(actionTypes.HIDE_LOADING));
+    }
+    fetchAPI();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

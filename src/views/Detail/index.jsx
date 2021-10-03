@@ -8,6 +8,8 @@ import { scroller } from "react-scroll";
 import "./style.css";
 import ShowtimesTabs from "./ShowtimesTabs";
 import MainLayout from "../../HOCs/Layouts/MainLayout";
+import createAction from "../../store/actions";
+import actionTypes from "../../store/types";
 import { fetchMovieShowtimeInfo } from "../../store/actions/cinemaAction";
 import { IconPlayVideo } from "../../assets/images";
 
@@ -24,7 +26,15 @@ const Detail = () => {
 
   useEffect(() => {
     const movieId = params.id;
-    dispatch(fetchMovieShowtimeInfo(movieId));
+
+    async function fetchAPI() {
+      dispatch(createAction(actionTypes.DISPLAY_LOADING));
+
+      await dispatch(fetchMovieShowtimeInfo(movieId));
+
+      dispatch(createAction(actionTypes.HIDE_LOADING));
+    }
+    fetchAPI();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

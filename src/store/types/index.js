@@ -18,6 +18,10 @@ const actionTypes = {
   ADD_SEAT: "ADD_SEAT",
   CLEAR_SEATS: "CLEAR_SEATS",
   SET_ACTIVED_TAB: "SET_ACTIVED_TAB",
+
+  // LOADING TYPE
+  DISPLAY_LOADING: "DISPLAY_LOADING",
+  HIDE_LOADING: "HIDE_LOADING",
 };
 
 export default actionTypes;

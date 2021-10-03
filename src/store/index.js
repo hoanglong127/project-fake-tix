@@ -5,6 +5,7 @@ import movieReducer from "./reducers/movieReducer";
 import cinemaReducer from "./reducers/cinemaReducer";
 import authReducer from "./reducers/authReducer";
 import ticketReducer from "./reducers/ticketReducer";
+import loadingReducer from "./reducers/loadingReducer";
 
 const rootReducer = combineReducers({
   bannerReducer,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   cinemaReducer,
   authReducer,
   ticketReducer,
+  loadingReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

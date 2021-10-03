@@ -46,7 +46,6 @@ export const fetchMovieShowtimeInfo = (movieId) => {
         params: { MaPhim: movieId },
       });
 
-      console.log(res);
       dispatch(
         createAction(actionTypes.SET_MOVIE_SHOWTIME_INFO, res.data.content)
       );

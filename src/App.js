@@ -9,6 +9,7 @@ import Signup from "./views/Signup";
 import Checkout from "./views/Checkout";
 import { fetchUserInfo } from "./store/actions/authAction";
 import { AuthRoute, PrivateRoute } from "./HOCs/Route";
+import Loading from "./components/Loading";
 
 function App() {
   const dispatch = useDispatch();
@@ -20,6 +21,8 @@ function App() {
 
   return (
     <BrowserRouter>
+      <Loading />
+
       <Switch>
         <AuthRoute path="/signup" component={Signup} redirectPath="/" />
         <AuthRoute path="/signin" component={Signin} redirectPath="/" />
