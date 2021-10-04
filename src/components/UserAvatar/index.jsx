@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
 
 const UserAvatar = ({ userInfo }) => {
   return (
@@ -11,7 +12,9 @@ const UserAvatar = ({ userInfo }) => {
           className="w-8 h-8 border rounded-full bg-gray-500 border-gray-300"
         />
       </div>
-      <p className="ml-2 mb-0 text-base">{userInfo?.hoTen}</p>
+      <Link to="/profile" className="ml-2 mb-0 text-base hover:text-red-500">
+        {userInfo?.hoTen}
+      </Link>
     </Fragment>
   );
 };

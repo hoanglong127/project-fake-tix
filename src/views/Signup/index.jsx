@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import Swal from "sweetalert2";
@@ -48,6 +48,10 @@ const Signup = () => {
     validationSchema: schema,
     validateOnMount: true,
   });
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, []);
 
   const handleIsVisiblePassword = () => {
     setIsVisiblePassword(!isVisiblePassWord);

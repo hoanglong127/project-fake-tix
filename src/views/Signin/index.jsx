@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { Link, useHistory } from "react-router-dom";
@@ -32,6 +32,10 @@ const Signin = () => {
     validationSchema: schema,
     validateOnMount: true,
   });
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, []);
 
   const handleIsVisiblePassword = () => {
     setIsVisiblePassword(!isVisiblePassWord);

@@ -43,12 +43,13 @@ const Header = () => {
       if (res.isConfirmed) {
         dispatch(
           logOut(() => {
+            if (location.pathname === "/profile") history.push("/signin");
+
             Swal.fire({
               icon: "success",
               title: "Đã đăng xuất",
               text: "Cám ơn bạn đã sử dụng Tix",
             });
-
             if (isSidebar) setIsSidebar(false);
           })
         );

@@ -41,3 +41,20 @@ export const fetchUserInfo = async (dispatch) => {
     console.log(err);
   }
 };
+
+export const updateUserInfo = (newUser, alertSuccess) => {
+  return async (dispatch) => {
+    try {
+      await request({
+        method: "PUT",
+        url: `${DOMAIN}/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung`,
+        data: newUser,
+      });
+
+      dispatch(fetchUserInfo);
+      alertSuccess();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};

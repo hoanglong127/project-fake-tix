@@ -1,0 +1,15 @@
+.profile .ant-tabs-tab-btn {
+  font-size: 16px;
+}
+
+.profile .ant-tabs-tab:hover {
+  color: inherit;
+}
+
+.profile .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #ef4444;
+}
+
+.profile .ant-tabs-ink-bar {
+  background: #ef4444;
+}

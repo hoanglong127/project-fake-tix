@@ -31,17 +31,9 @@ const Checkout = () => {
 
   useEffect(() => {
     const { id } = params;
-
-    async function fetchAPI() {
-      dispatch(createAction(actionTypes.DISPLAY_LOADING));
-
-      await dispatch(fetchTicketRoomInfo(id));
-
-      dispatch(createAction(actionTypes.CLEAR_SEATS));
-      dispatch(createAction(actionTypes.SET_ACTIVED_TAB, "TicketRoom"));
-      dispatch(createAction(actionTypes.HIDE_LOADING));
-    }
-    fetchAPI();
+    dispatch(fetchTicketRoomInfo(id));
+    dispatch(createAction(actionTypes.CLEAR_SEATS));
+    dispatch(createAction(actionTypes.SET_ACTIVED_TAB, "TicketRoom"));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
