@@ -15,7 +15,7 @@ const { TabPane } = Tabs;
 const columns = [
   {
     title: "Mã vé",
-    width: 100,
+    width: 80,
     dataIndex: "maVe",
     key: "maVe",
     fixed: "left",
@@ -177,7 +177,7 @@ const Profile = () => {
     <MainLayout>
       <div className="profile pt-16">
         <div className="container mx-auto py-10">
-          <div className="grid grid-cols-12 gap-10">
+          <div className="grid grid-cols-12 md:gap-10">
             <div className="col-span-12 md:col-span-3">
               <img
                 src="https://source.unsplash.com/300x300/?portraite"
