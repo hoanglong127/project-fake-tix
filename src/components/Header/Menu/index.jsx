@@ -11,7 +11,7 @@ const Menu = ({ handleClickLink }) => {
           Lịch chiếu
         </span>
       </li>
-      <li className="py-3 md:py-0 md:px-3">
+      <li className="hidden md:block py-3 md:py-0 md:px-3">
         <span
           onClick={() => handleClickLink("cumRap")}
           className="font-medium text-base text-black hover:text-red-500 cursor-pointer transition-all duration-300"
@@ -27,7 +27,10 @@ const Menu = ({ handleClickLink }) => {
           Tin tức
         </span>
       </li>
-      <li className="py-3 md:py-0 md:px-3">
+      <li
+        onClick={() => handleClickLink("ungDung")}
+        className="py-3 md:py-0 md:px-3"
+      >
         <span className="font-medium text-base text-black hover:text-red-600 cursor-pointer transition-all duration-300">
           Ứng dụng
         </span>

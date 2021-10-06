@@ -120,9 +120,7 @@ const TicketRoom = ({
           <p className="text-sm md:text-base text-gray-500 font-medium">
             Điện thoại
           </p>
-          <p className="text-xs md:text-sm mb-0">
-            {userInfo?.soDt || "0987654321"}
-          </p>
+          <p className="text-xs md:text-sm mb-0">{userInfo?.soDT}</p>
         </div>
         <hr />
         <div className="my-5 text-center text-xs md:text-sm">

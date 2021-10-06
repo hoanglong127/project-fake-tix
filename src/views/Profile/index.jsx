@@ -29,6 +29,7 @@ const columns = [
     title: "Thời lượng",
     dataIndex: "thoiLuongPhim",
     key: "thoiLuongPhim",
+    render: (minute) => <p>{minute} phút</p>,
   },
   {
     title: "Ngày đặt",

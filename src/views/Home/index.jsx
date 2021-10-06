@@ -6,6 +6,7 @@ import Banner from "./Banner";
 import Showtimes from "./Showtimes";
 import Theaters from "./Theaters";
 import News from "./News";
+import HomeApp from "./HomeApp";
 import MainLayout from "../../HOCs/Layouts/MainLayout";
 import newsList from "../../fake-data/news.json";
 import { fetchBannerList } from "../../store/actions/bannerAction";
@@ -45,6 +46,7 @@ const Home = () => {
         />
         <Theaters theaterSystemShowtime={theaterSystemShowtime} />
         <News newsList={newsList} />
+        <HomeApp />
       </MainLayout>
       <ModalVideo
         channel="youtube"
