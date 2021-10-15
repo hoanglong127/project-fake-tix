@@ -60,7 +60,7 @@ const Header = () => {
   return (
     <Fragment>
       <header
-        className="fixed w-full max-h-16 z-40 shadow-sm"
+        className="fixed w-full max-h-16 z-40 shadow-md"
         style={{ backgroundColor: "rgba(255,255,255,.95)" }}
       >
         <div className="flex justify-between items-center px-5 py-2">

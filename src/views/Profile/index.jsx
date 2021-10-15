@@ -72,19 +72,6 @@ const columns = [
   },
 ];
 
-let data = [];
-
-const createNewData = (ticketList = []) => {
-  const newData = [];
-  ticketList.map((ticket, index) =>
-    newData.push({
-      ...ticket,
-      key: index,
-    })
-  );
-  data = newData;
-};
-
 const schema = yup.object().shape({
   matKhau: yup.string().required("Vui lòng nhập mật khẩu"),
   hoTen: yup.string().required("Vui lòng nhập họ tên"),
@@ -113,14 +100,15 @@ const Profile = () => {
     handleBlur,
   } = useFormik({
     initialValues: {
-      taiKhoan: "",
-      matKhau: "",
-      hoTen: "",
-      email: "",
-      soDt: "",
-      maNhom: "",
-      maLoaiNguoiDung: "",
+      taiKhoan: userInfo?.taiKhoan,
+      matKhau: userInfo?.matKhau,
+      hoTen: userInfo?.hoTen,
+      email: userInfo?.email,
+      soDt: userInfo?.soDT,
+      maNhom: "GP09",
+      maLoaiNguoiDung: "KhachHang",
     },
+    enableReinitialize: true,
     validationSchema: schema,
     validateOnMount: true,
   });
@@ -130,20 +118,6 @@ const Profile = () => {
     dispatch(fetchUserInfo);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  useEffect(() => {
-    setValues({
-      taiKhoan: userInfo?.taiKhoan ?? "",
-      matKhau: userInfo?.matKhau ?? "",
-      hoTen: userInfo?.hoTen ?? "",
-      email: userInfo?.email ?? "",
-      soDt: userInfo?.soDT ?? "",
-      maNhom: "GP00",
-      maLoaiNguoiDung: "KhachHang",
-    });
-
-    createNewData(userInfo?.thongTinDatVe);
-  }, [userInfo, setValues]);
 
   const handleVisiblePassword = () => {
     setIsVisiblePassword(!isVisiblePassword);
@@ -336,7 +310,8 @@ const Profile = () => {
                 <TabPane tab="Lịch sử đặt vé" key="HistoryBooking">
                   <Table
                     columns={columns}
-                    dataSource={data}
+                    dataSource={userInfo?.thongTinDatVe}
+                    rowKey="maVe"
                     scroll={{ x: 1200 }}
                     pagination={false}
                   />

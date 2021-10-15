@@ -17,7 +17,26 @@
 }
 
 .theaters .ant-tabs-ink-bar {
-  background: rgb(239, 68, 68);
+  /* background: rgb(239, 68, 68); */
+  display: none;
+}
+
+.theaters .ant-tabs-tab {
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.theaters .ant-tabs-tab:hover {
+  opacity: 1;
+}
+
+.theaters .ant-tabs-tab.ant-tabs-tab-active {
+  opacity: 1;
+}
+
+.theaters .theaters-item .ant-tabs-nav-list {
+  max-height: 800px;
+  overflow: hidden auto;
 }
 
 .theaters .theaters-item .ant-tabs-nav {
@@ -28,6 +47,23 @@
   max-width: 200px;
 }
 
+.theater-movies {
+  max-height: 800px;
+  overflow: hidden auto;
+}
+
 .theater-movies .theater-movies-item:last-child {
   border-bottom: none;
+}
+
+.theaters .theaters-item .ant-tabs-nav-list::-webkit-scrollbar,
+.theater-movies::-webkit-scrollbar {
+  width: 6px;
+  transition: all 0.3s ease;
+}
+
+.theaters .theaters-item .ant-tabs-nav-list::-webkit-scrollbar-thumb,
+.theater-movies::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
 }

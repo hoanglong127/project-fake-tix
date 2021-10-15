@@ -13,7 +13,7 @@ const Theaters = ({ theaterSystemShowtime }) => {
     if (moviesShowing.length === 0)
       return <p className="text-center text-lg py-5">Không có suất chiếu</p>;
 
-    return moviesShowing.slice(0, 10).map((movie) => (
+    return moviesShowing.map((movie) => (
       <div
         key={movie.maPhim}
         className="theater-movies-item py-5 border-b border-gray-100"
@@ -30,7 +30,7 @@ const Theaters = ({ theaterSystemShowtime }) => {
           </div>
         </div>
         <div className="flex gap-3 flex-wrap mt-5">
-          {movie.lstLichChieuTheoPhim.slice(0, 10).map((showtime) => (
+          {movie.lstLichChieuTheoPhim.map((showtime) => (
             <Link
               to={`/checkout/${showtime.maLichChieu}`}
               key={showtime.maLichChieu}
@@ -62,7 +62,7 @@ const Theaters = ({ theaterSystemShowtime }) => {
             key={sys.maHeThongRap}
           >
             <Tabs className="theaters-item" tabPosition={"left"}>
-              {sys.lstCumRap.slice(0, 10).map((theater, index) => (
+              {sys.lstCumRap.map((theater, index) => (
                 <TabPane
                   tab={
                     <div className="flex items-center">
