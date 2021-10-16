@@ -18,7 +18,6 @@ const Footer = () => {
 
   useEffect(() => {
     dispatch(fetchTheaterSystemInfo);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

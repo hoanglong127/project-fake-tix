@@ -154,7 +154,7 @@ const Profile = () => {
           <div className="grid grid-cols-12 md:gap-10">
             <div className="col-span-12 md:col-span-3">
               <img
-                src="https://source.unsplash.com/300x300/?portraite"
+                src={`https://i.pravatar.cc/300?u=${userInfo?.hoTen}`}
                 alt="user-avatar"
                 className="w-1/2 md:w-full mx-auto border rounded-full  border-gray-300"
               />
