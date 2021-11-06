@@ -20,4 +20,4 @@ https://github.com/hoanglong127/project-fake-tix
 
 ## Admin:
 
-https://github.com/hoanglong127/BookMovieTickets-Admin
+https://github.com/hoanglong127/project-fake-tix-admin
