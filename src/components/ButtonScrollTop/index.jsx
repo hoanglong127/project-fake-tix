@@ -4,12 +4,12 @@ import { IconArrowUp } from "../../assets/images";
 const ButtonScrollTop = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  const handleSetIsVisible = () => {
-    if (window.pageYOffset > 600) setIsVisible(true);
-    else setIsVisible(false);
-  };
-
   useEffect(() => {
+    const handleSetIsVisible = () => {
+      if (window.pageYOffset > 600) setIsVisible(true);
+      else setIsVisible(false);
+    };
+
     window.addEventListener("scroll", handleSetIsVisible);
 
     return () => {

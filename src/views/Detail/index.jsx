@@ -90,12 +90,14 @@ const Detail = () => {
                   </h2>
                 </div>
                 <p className="mb-4">120 phút - 7 IMDb - 2D/Digitals</p>
-                <button
-                  onClick={() => handleBuyTickket("lichChieu")}
-                  className="px-4 py-1 bg-red-500 hover:bg-red-600 text-white text-base md:text-lg rounded transition-all duration-300"
-                >
-                  Mua vé
-                </button>
+                {movieShowtimeInfo?.dangChieu && (
+                  <button
+                    onClick={() => handleBuyTickket("lichChieu")}
+                    className="px-4 py-1 bg-red-500 hover:bg-red-600 text-white text-base md:text-lg rounded transition-all duration-300"
+                  >
+                    Mua vé
+                  </button>
+                )}
                 <button
                   onClick={() =>
                     handleOpenModalTrailer(movieShowtimeInfo?.trailer)

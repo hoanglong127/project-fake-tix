@@ -18,7 +18,6 @@ function App() {
 
   useEffect(() => {
     if (localStorage.getItem("t")) dispatch(fetchUserInfo);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
