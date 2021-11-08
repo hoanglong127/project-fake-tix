@@ -16,8 +16,8 @@ React Hooks, Redux, Redux-thunk, Ant Design, TailwindCSS, Axios, Formik + Yup
 
 ## Demo:
 
-Updating
+https://github.com/hoanglong127/project-fake-tix
 
 ## Admin:
 
-https://github.com/hoanglong127/BookMovieTickets-Admin
+https://github.com/hoanglong127/project-fake-tix-admin
