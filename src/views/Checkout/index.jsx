@@ -26,7 +26,6 @@ const Checkout = () => {
   const { ticketRoomInfo, seatBookingList, activedTab } = useSelector(
     (state) => state.ticketReducer
   );
-
   const { thongTinPhim, danhSachGhe } = ticketRoomInfo;
 
   useEffect(() => {
@@ -39,6 +38,9 @@ const Checkout = () => {
 
   // Xử lý đặt vé
   const handleBookTickets = () => {
+    if (seatBookingList.length === 0)
+      return Swal.fire({ icon: "warning", title: "Vui lòng chọn ghế!" });
+
     Swal.fire({
       icon: "info",
       title: "Thông tin đặt vé sẽ được gửi qua email",
